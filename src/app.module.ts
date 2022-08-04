@@ -1,4 +1,5 @@
 import { Module } from "@nestjs/common";
+import { ScheduleModule } from "@nestjs/schedule";
 import { SequelizeModule } from "@nestjs/sequelize";
 import { join } from "path";
 import { AppController } from "./app.controller";
@@ -7,6 +8,7 @@ import { UsuariosModule } from "./usuarios/usuarios.module";
 
 @Module({
   imports: [
+    ScheduleModule.forRoot(),
     SequelizeModule.forRoot({
       dialect: "sqlite",
       host: join(__dirname, "dbo.sqlite"),
